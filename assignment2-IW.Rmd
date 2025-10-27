@@ -1,0 +1,52 @@
+---
+title: "Assignment2-IW"
+author: "Izzy Weintraub"
+date: "2025-10-27"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+#load packages 
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(Hmisc)
+library(descr)
+library(tidyverse)
+
+#find and load the data
+penguins <- read_csv("/Users/izzyweintraub/Documents/GitHub/assignment2/penguins (1).csv")
+
+#data structure
+str(penguins)
+freq(penguins$species)
+
+#descriptive analyses 
+describe(penguins$body_mass_g)
+describe(penguins$sex)
+describe(penguins$flipper_length_mm)
+
+#scatterplot- 2 quantitative variables 
+
+ggplot(data=penguins) +
+  geom_point(aes(x=flipper_length_mm, y=bill_depth_mm))
+
+ggplot(data=penguins) +
+  geom_point(aes(x=flipper_length_mm, y=bill_length_mm))
+
+#Boxplot- comparing summary statistics 
+ggplot(data=penguins) +
+  geom_boxplot(aes(x=species, y=flipper_length_mm)) +
+  coord_flip()
+
+ggplot(data=penguins) +
+  geom_boxplot(aes(x=species, y=flipper_length_mm))
+
+
