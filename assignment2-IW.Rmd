@@ -49,4 +49,9 @@ ggplot(data=penguins) +
 ggplot(data=penguins) +
   geom_boxplot(aes(x=species, y=flipper_length_mm))
 
+#Add fill to boxplot 
+ggplot(data=penguins) +
+geom_boxplot(aes(x=species, y=flipper_length_mm, fill=species))
+
+#visuals above 
 
